@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二章仰望星空—星座故事 - 天文學</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Courses</li><li class="chapter-item expanded "><a href="天文漫谈.html"><strong aria-hidden="true">2.</strong> 天文漫谈</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="第一章序—天上的街市.html"><strong aria-hidden="true">2.1.</strong> 第一章序—天上的街市</a></li><li class="chapter-item expanded "><a href="第二章仰望星空—星座故事.html" class="active"><strong aria-hidden="true">2.2.</strong> 第二章仰望星空—星座故事</a></li><li class="chapter-item expanded "><a href="第三章月球故事.html"><strong aria-hidden="true">2.3.</strong> 第三章月球故事</a></li><li class="chapter-item expanded "><a href="第四章太阳系之旅.html"><strong aria-hidden="true">2.4.</strong> 第四章太阳系之旅</a></li><li class="chapter-item expanded "><a href="第五章恒星世界.html"><strong aria-hidden="true">2.5.</strong> 第五章恒星世界</a></li><li class="chapter-item expanded "><a href="第六章银河系与河外星系.html"><strong aria-hidden="true">2.6.</strong> 第六章银河系与河外星系</a></li><li class="chapter-item expanded "><a href="第七章我心飞翔-宇宙探秘.html"><strong aria-hidden="true">2.7.</strong> 第七章我心飞翔-宇宙探秘</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Books</li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">天文學</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="第二章-仰望星空星座故事"><a class="header" href="#第二章-仰望星空星座故事">第二章 仰望星空—星座故事</a></h1>
+<ul>
+<li><a href="#211%E6%96%97%E8%BD%AC%E6%98%9F%E7%A7%BB-%E5%8C%97%E6%96%97%E6%98%9F%E4%B8%8E%E5%A4%A7%E7%86%8A%E5%BA%A7">2.1.1【斗转星移】 北斗星与大熊座</a></li>
+<li><a href="#212%E6%96%97%E8%BD%AC%E6%98%9F%E7%A7%BB-%E5%8C%97%E6%9E%81%E6%98%9F%E4%B8%8E%E5%B0%8F%E7%86%8A%E5%BA%A7">2.1.2【斗转星移】 北极星与小熊座</a></li>
+<li><a href="#221%E6%98%8E%E6%98%9F%E7%92%80%E7%92%A8-%E5%86%AC%E5%A4%9C%E6%98%9F%E7%A9%BA%E4%B8%89%E6%98%9F%E9%AB%98%E7%85%A7-%E7%8C%8E%E6%88%B7%E5%BA%A7">2..2.1【明星璀璨-冬夜星空】三星高照-猎户座</a></li>
+<li><a href="#222-%E6%98%8E%E6%98%9F%E7%92%80%E7%92%A8-%E5%86%AC%E5%A4%9C%E6%98%9F%E7%A9%BA%E5%A4%A9%E7%8B%BC%E6%98%9F%E4%B8%8E%E5%A4%A7%E7%8A%AC%E5%BA%A7%E5%8F%8A%E5%86%AC%E5%AD%A3%E5%A4%A7%E4%B8%89%E8%A7%92">2.2.2 【明星璀璨-冬夜星空】天狼星与大犬座及冬季大三角</a></li>
+<li><a href="#223-%E6%98%8E%E6%98%9F%E7%92%80%E7%92%A8-%E5%86%AC%E5%A4%9C%E6%98%9F%E7%A9%BA%E9%87%91%E7%89%9B%E5%BA%A7%E4%B8%8E%E4%B8%83%E5%A7%8A%E5%A6%B9%E6%98%9F">2.2.3 【明星璀璨-冬夜星空】金牛座与七姊妹星</a></li>
+<li><a href="#224-%E6%98%8E%E6%98%9F%E7%92%80%E7%92%A8-%E5%86%AC%E5%A4%9C%E6%98%9F%E7%A9%BA%E5%A4%AA%E9%98%B3%E9%87%91%E8%BD%A6-%E5%BE%A1%E5%A4%AB%E5%BA%A7">2.2.4 【明星璀璨-冬夜星空】太阳金车-御夫座</a></li>
+<li><a href="#231%E6%B2%B3%E4%B8%9C%E7%8B%AE%E5%90%BC-%E6%98%A5%E5%A4%9C%E6%98%9F%E7%A9%BA%E7%8B%AE%E5%AD%90%E5%BA%A7%E4%B8%8E%E6%B5%81%E6%98%9F%E9%9B%A8">2.3.1【河东狮吼-春夜星空】狮子座与流星雨</a></li>
+<li><a href="#232-%E6%B2%B3%E4%B8%9C%E7%8B%AE%E5%90%BC-%E6%98%A5%E5%A4%9C%E6%98%9F%E7%A9%BA%E6%98%A5%E5%A4%9C%E6%98%8E%E7%81%AF-%E7%89%A7%E5%A4%AB%E5%BA%A7">2.3.2 【河东狮吼-春夜星空】春夜明灯-牧夫座</a></li>
+<li><a href="#233-%E6%B2%B3%E4%B8%9C%E7%8B%AE%E5%90%BC-%E6%98%A5%E5%A4%9C%E6%98%9F%E7%A9%BA%E5%86%9C%E7%A5%9E%E5%A5%B3%E5%84%BF-%E5%AE%A4%E5%A5%B3%E5%BA%A7">2.3.3 【河东狮吼-春夜星空】农神女儿-室女座</a></li>
+<li><a href="#234-%E6%B2%B3%E4%B8%9C%E7%8B%AE%E5%90%BC-%E6%98%A5%E5%A4%9C%E6%98%9F%E7%A9%BA%E5%8F%8C%E5%AD%90%E5%BA%A7%E4%B9%8C%E9%B8%A6%E5%BA%A7%E9%95%BF%E8%9B%87%E5%BA%A7">2.3.4 【河东狮吼-春夜星空】双子座、乌鸦座、长蛇座</a></li>
+<li><a href="#241%E4%B8%83%E5%A4%95%E5%A4%9C%E8%AF%9D-%E5%A4%8F%E5%A4%9C%E6%98%9F%E7%A9%BA%E4%B8%83%E6%9C%88%E6%B5%81%E7%81%AB-%E5%A4%A9%E8%9D%8E%E5%BA%A7">2.4.1【七夕夜话-夏夜星空】七月流火-天蝎座</a></li>
+<li><a href="#242%E4%B8%83%E5%A4%95%E5%A4%9C%E8%AF%9D-%E5%A4%8F%E5%A4%9C%E6%98%9F%E7%A9%BA%E7%89%9B%E9%83%8E%E7%BB%87%E5%A5%B3-%E5%A4%A9%E9%B9%B0%E5%BA%A7%E4%B8%8E%E5%A4%A9%E7%90%B4%E5%BA%A7">2.4.2【七夕夜话-夏夜星空】牛郎织女-天鹰座与天琴座</a></li>
+<li><a href="#243-%E4%B8%83%E5%A4%95%E5%A4%9C%E8%AF%9D-%E5%A4%8F%E5%A4%9C%E6%98%9F%E7%A9%BA%E5%A4%A9%E6%B4%A5%E6%A8%AA%E6%B2%B3-%E5%A4%A9%E9%B9%85%E5%BA%A7">2.4.3 【七夕夜话-夏夜星空】天津横河-天鹅座</a></li>
+<li><a href="#244-%E4%B8%83%E5%A4%95%E5%A4%9C%E8%AF%9D-%E5%A4%8F%E5%A4%9C%E6%98%9F%E7%A9%BA%E4%BA%BA%E9%97%B4%E8%8B%B1%E9%9B%84-%E6%AD%A6%E4%BB%99%E5%BA%A7">2.4.4 【七夕夜话-夏夜星空】人间英雄-武仙座</a></li>
+<li><a href="#251-%E7%8E%8B%E6%97%8F%E4%BC%A0%E8%AF%B4-%E7%A7%8B%E5%A4%9C%E6%98%9F%E7%A9%BA%E8%8B%B1%E9%9B%84%E6%95%91%E7%BE%8E-%E7%8E%8B%E6%97%8F%E6%98%9F%E5%BA%A7%E4%BC%A0%E8%AF%B4">2.5.1 【王族传说-秋夜星空】英雄救美-王族星座传说</a></li>
+<li><a href="#252-%E7%8E%8B%E6%97%8F%E4%BC%A0%E8%AF%B4-%E7%A7%8B%E5%A4%9C%E6%98%9F%E7%A9%BA%E8%8B%B1%E9%9B%84%E5%85%AC%E4%B8%BB-%E8%8B%B1%E4%BB%99%E5%BA%A7%E4%B8%8E%E4%BB%99%E5%A5%B3%E5%BA%A7">2.5.2 【王族传说-秋夜星空】英雄公主-英仙座与仙女座</a></li>
+<li><a href="#253-%E7%8E%8B%E6%97%8F%E4%BC%A0%E8%AF%B4-%E7%A7%8B%E5%A4%9C%E6%98%9F%E7%A9%BA%E4%BB%99%E7%8E%8B%E5%BA%A7%E4%B8%8E%E4%BB%99%E5%90%8E%E5%BA%A7">2.5.3 【王族传说-秋夜星空】仙王座与仙后座</a></li>
+<li><a href="#254-%E7%8E%8B%E6%97%8F%E4%BC%A0%E8%AF%B4-%E7%A7%8B%E5%A4%9C%E6%98%9F%E7%A9%BA%E4%BC%97%E7%A5%9E%E7%AA%98%E6%80%81-%E6%91%A9%E7%BE%AF%E5%BA%A7%E5%8D%97%E9%B1%BC%E5%BA%A7%E5%8F%8C%E9%B1%BC%E5%BA%A7">2.5.4 【王族传说-秋夜星空】众神窘态-摩羯座南鱼座双鱼座</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%E6%B5%8B%E8%AF%95%E9%A2%98">第二章测试题</a></li>
+</ul>
+<h2 id="211斗转星移-北斗星与大熊座"><a class="header" href="#211斗转星移-北斗星与大熊座">2.1.1【斗转星移】 北斗星与大熊座</a></h2>
+<p>这节课介绍了北斗星与大熊座的故事。北斗星是夜空中非常显眼的星座，它在夜晚会随着时间转动，带动其他星座一起转动，形成了斗转星移的景象。北斗星属于大熊座，而大熊座有一个凄婉的古希腊神话故事，讲述了美丽的仙女卡莉斯托被赫拉变成一头大熊的故事。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305233114.png" alt="" /></p>
+<p>北斗星在中国古代被分为魁和杓两部分，魁代表文曲星，而杓则指向南方。通过观察北斗星的位置和指向，可以判断季节。北斗星的显眼地位使得它被称为帝车，代表着帝王之势。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305233938.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305233842.png" alt="" /></p>
+<p>《鹖冠子》言：<strong>“斗属柄东指，天下皆春；斗柄南指，天下皆夏；斗柄西指，天下皆秋；斗柄北指，天下皆冬。斗柄运于上，事立于下；斗柄指一方，四塞俱成，此道之用法也。”</strong></p>
+<p>那么为什么北斗七星斗柄在不同季节时指向不同呢？《鹖冠子》这里指的其实是北斗星斗柄，在春分、夏至、秋分、冬至四个节气时候初昏的指向，恰好指向东南西北四方。但是由于岁差的存在，使得每1000年角度差有15°。道教的天罡口诀，也因为这个有了很大误差。我们现在基本上是在10点多左右，即古代的子时才能看到四节时期斗柄指向四方了，古代之所以初昏是因为这个时候是观测星象最好的时间，且恰好斗柄所指为东南西北。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/141554131">为什么看北斗七星斗柄指向可以判断季节？</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305233408.png" alt="" /></p>
+<p>最后，视频提到了北斗星在澳大利亚旅游游记中的描述，但是描述中却出现了北斗星出现在南极的错误。</p>
+<h2 id="212斗转星移-北极星与小熊座"><a class="header" href="#212斗转星移-北极星与小熊座">2.1.2【斗转星移】 北极星与小熊座</a></h2>
+<p>北极星（勾陈一）</p>
+<p>这节课讲述了北斗七星和大熊座的故事，以及如何通过北斗七星找到北极星。北极星在古希腊神话中属于小熊座，与美丽的仙女卡莉斯托有关。故事讲述了卡莉斯托变成大熊后与儿子阿卡斯的相遇。北极星和小熊座的故事讲述了它们的不分离和大熊对小熊的爱护。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305234619.png" alt="" /></p>
+<p>此外，还介绍了北极星的高度角与地球纬度的关系，以及恒星的视运动和星轨照片的拍摄技巧。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305234845.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240305234926.png" alt="" /></p>
+<h2 id="221明星璀璨-冬夜星空三星高照-猎户座"><a class="header" href="#221明星璀璨-冬夜星空三星高照-猎户座">2..2.1【明星璀璨-冬夜星空】三星高照-猎户座</a></h2>
+<p>这节课介绍了冬夜星空中的猎户座，以及与猎户座相关的古希腊神话故事。冬夜星空中的猎户座是最明显的星座之一，它由几颗明亮的星星组成，形状像一只风筝。根据古希腊神话，猎户座是海神波塞冬的儿子奥赖温，他打动了月亮女神阿尔忒弥斯的心。然而，太阳神赫利俄斯不满意他们的关系，于是阿波罗给阿尔忒弥斯出了一个难题，要她射中海面上的一个黑点，实际上是奥赖温。阿尔忒弥斯射中了黑点，却发现射中的是奥赖温，非常悲痛。宙斯为了解决这个问题，将奥赖温和蝎子升上天空，分别成为猎户座和天蝎座。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240306000153.png" alt="" /></p>
+<p>猎户座在中国文化中也有所涉及，被称为参宿，与夏夜的天蝎座相对应。参宿三星也象征着新年的到来，非常吉祥。</p>
+<p>三星：原指明亮而接近的三颗星。立春时节，在正南方夜空，有三颗星距离相近，连成一条直线，那就是参宿一、参宿二和参宿三，民间将其称为“福星、禄星、寿星”。“三星”也指福星、禄星、寿星三个神仙。 出处：《诗经·唐风·绸缪》：“绸缪束薪，三星在天。”</p>
+<p>《赠卫八处士》——杜甫</p>
+<p><strong>人生不相见，动如参与商</strong>。<br />
+今夕复何夕，共此灯烛光。<br />
+少壮能几时，鬓发各已苍。<br />
+访旧半为鬼，惊呼热中肠。<br />
+焉知二十载，重上君子堂。<br />
+昔别君未婚，儿女忽成行。<br />
+怡然敬父执，问我来何方。<br />
+问答乃未已，驱儿罗酒浆。(乃未已 一作：未及已；驱儿 一作：儿女)<br />
+夜雨剪春韭，新炊间黄粱。<br />
+主称会面难，一举累十觞。<br />
+十觞亦不醉，感子故意长。<br />
+明日隔山岳，世事两茫茫。</p>
+<p>参商二星，其出没不相见；牛女两宿，惟七夕一相逢。——《幼学琼林》</p>
+<p>在这节课中，我们学习了关于猎户座的相关天象。猎户座最显眼的是参宿四，它发出火红色的光芒，说明它的温度比太阳低。我们还学习了恒星的颜色与温度之间的关系，可以通过发光的颜色或波长来判断恒星的温度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240306000912.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240306001030.png" alt="" /></p>
+<p>此外，我们还了解了星云的知识，星云是由星际空间的气体和尘埃组成的。猎户座星云是一种亮星云，其中的反射星云发出蓝光，而发射星云发出玫瑰红色的光芒。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310232216.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310232432.png" alt="" /></p>
+<p>最后，我们还介绍了猎户座的暗星云，它是黑色的，不发光，但可以显影出来。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310232615.png" alt="" /></p>
+<h2 id="222-明星璀璨-冬夜星空天狼星与大犬座及冬季大三角"><a class="header" href="#222-明星璀璨-冬夜星空天狼星与大犬座及冬季大三角">2.2.2 【明星璀璨-冬夜星空】天狼星与大犬座及冬季大三角</a></h2>
+<p>在这节课中，我们学习了冬夜星空中的天狼星与大犬座以及冬季大三角。天狼星是夜空中最亮的恒星，属于大犬座，被古埃及人视作神明，并且根据天狼星的升起时间制定了最早的阳历。在中国文化中，天狼星也被引用为凶恶的敌人的象征。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310233008.png" alt="" /></p>
+<p>此外，我们还认识了小犬座和冬季大三角，它们都与猎人奥赖温的猎犬有关。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310233113.png" alt="" /></p>
+<h2 id="223-明星璀璨-冬夜星空金牛座与七姊妹星"><a class="header" href="#223-明星璀璨-冬夜星空金牛座与七姊妹星">2.2.3 【明星璀璨-冬夜星空】金牛座与七姊妹星</a></h2>
+<p>这节课主要讲述了金牛座与七姊妹星的故事。故事中，国王偷换了海神送给他的牛，导致海神生了一个牛头人身的怪物。为了除掉怪物，雅典少年英雄忒修斯自愿参加了征召童男童女的行动，并成功杀死了怪物。他们通过阿里阿德涅给的线团找到了出迷宫的路。最后，牛头人身怪被升上天空，成为了金牛座。此外，还介绍了昴星团和七姊妹星的由来。昴星团在中国古代被称为七簇星，而在西方被称为七姊妹星，因为它们形成了七只白鸽向天上飞的情景。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310233604.png" alt="" /></p>
+<h2 id="224-明星璀璨-冬夜星空太阳金车-御夫座"><a class="header" href="#224-明星璀璨-冬夜星空太阳金车-御夫座">2.2.4 【明星璀璨-冬夜星空】太阳金车-御夫座</a></h2>
+<p>在这节课中，我们学习了冬夜星空中的太阳金车-御夫座。御夫座是由五颗星组成的五边形，也被称为五车。</p>
+<p>在西方的星座中，御夫座涉及太阳神之子阿尔同驾驶金车的故事。阿尔同是太阳神阿波罗的儿子，为了证明自己的身份，他请求阿波罗让他驾驶太阳金车一天。尽管阿波罗警告他这是危险的，但阿尔同坚持要驾驶。结果，他失去了控制，太阳金车在天空中狂奔，造成了一系列灾难。最终，阿波罗将他和金车打落到波江里。为了感谢阿尔同的勇气，众神将他升上天空，成为御夫座。</p>
+<p>相关星座：天鹅座、波江座</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310234044.png" alt="" /></p>
+<p>五车、三柱</p>
+<p>御夫座中的柱一是一颗特殊的变星，由两颗星组成，其亮度会发生变化。这类变星被称为食变星。</p>
+<p>御夫座距离我们约1200光年，其中亮的星直径相当于8倍太阳，暗的星直径相当于300倍太阳。冬夜星空中还有许多其他值得欣赏的星座。</p>
+<h2 id="231河东狮吼-春夜星空狮子座与流星雨"><a class="header" href="#231河东狮吼-春夜星空狮子座与流星雨">2.3.1【河东狮吼-春夜星空】狮子座与流星雨</a></h2>
+<p>这节课介绍了狮子座与流星雨的相关知识。狮子座是春夜星空的代表，它的神话故事涉及大英雄赫剌克勒斯。赫剌克勒斯打死了一头狮子，被尊为大英雄，并被升上天空成为狮子座。</p>
+<p>相关星座：武仙座</p>
+<p>狮子座每年11月中旬会有狮子座流星雨，这是由坦普尔-特塔尔彗星撒下的碎屑进入地球大气层燃烧形成的。</p>
+<p>狮子座流星雨非常壮观，早在古代中国就有记录。</p>
+<p>西元902年：中国（晚唐时期）首次记录狮子座流星暴。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310234646.png" alt="" /></p>
+<p>流星雨的轨迹看起来会聚到狮子座，这是透视的原理造成的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310234857.png" alt="" /></p>
+<h2 id="232-河东狮吼-春夜星空春夜明灯-牧夫座"><a class="header" href="#232-河东狮吼-春夜星空春夜明灯-牧夫座">2.3.2 【河东狮吼-春夜星空】春夜明灯-牧夫座</a></h2>
+<p>在这节课中，我们继续仰望春夜星空，学习了牧夫座的相关知识。通过北斗星的斗柄指向，我们可以找到一颗明亮的星，它被称为大角星，发出金黄色的光芒，非常漂亮。大角星和其他五颗星搭建成了一个形状，看起来像一只风筝或孔明灯。牧夫座的形象就是一个牧人，与古希腊神话故事中的大熊座有关。大角星是牧夫座最值得欣赏的一颗星，它的温度比太阳低，是全天第四亮的星，距离我们35光年。在春夜里，我们应该欣赏这迷人的春夜明灯。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310235120.png" alt="" /></p>
+<h2 id="233-河东狮吼-春夜星空农神女儿-室女座"><a class="header" href="#233-河东狮吼-春夜星空农神女儿-室女座">2.3.3 【河东狮吼-春夜星空】农神女儿-室女座</a></h2>
+<p>这节课介绍了室女座的故事。室女座是一个可爱的少女，是农神的女儿珀耳塞福涅。珀耳塞福涅被冥王哈德斯抢走，农神急于寻找女儿。最后，冥王同意让珀耳塞福涅每年回家一次，所以每到夏天，农神心里充满了希望和盼望。然而，当珀耳塞福涅回到冥府后，农神的心情逐渐黯淡，万物开始凋零。直到春天，农神的心里又充满了希望。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310235209.png" alt="" /></p>
+<p>室女座，拉丁语virgo，日语是乙女座，港台转译为处女座。中国天文学会的正式译名，是室女座。</p>
+<h2 id="234-河东狮吼-春夜星空双子座乌鸦座长蛇座"><a class="header" href="#234-河东狮吼-春夜星空双子座乌鸦座长蛇座">2.3.4 【河东狮吼-春夜星空】双子座、乌鸦座、长蛇座</a></h2>
+<p>视频中介绍了双子座的来历，讲述了斯巴达王妃丽达和宙斯的故事，他们生下了一对孪生兄妹波洛克斯和海伦，后者引发了特洛伊战争。接着，视频介绍了长蛇座，这是夜空中最长的星座，身上还背着一只巨爵。最后，视频提到了乌鸦座，讲述了乌鸦因为撒谎被宙斯惩罚，变成了乌漆巴黑的不受喜欢的鸟。视频建议我们在春季的夜晚欣赏这些星座，还提到了春夜星空中其他值得一看的星座。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310235915.png" alt="" /></p>
+<h2 id="241七夕夜话-夏夜星空七月流火-天蝎座"><a class="header" href="#241七夕夜话-夏夜星空七月流火-天蝎座">2.4.1【七夕夜话-夏夜星空】七月流火-天蝎座</a></h2>
+<p>这节课介绍了七月流火和天蝎座的故事。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311000341.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311000450.png" alt="" /></p>
+<p>七月流火是指大火星在夏历七月逐渐向西方沉下去的现象，预示着天气即将转凉。天蝎座是一个由心宿三星组成的星座，其中心宿二是一颗火红色的亮星，又称为大火星。在中国古代，人们对大火星的位置变化很重视，甚至安排了专门观测大火星的官职。大火星的位置变化可以用来判断季节，还产生了一个历法叫做大火历。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311000744.png" alt="" /></p>
+<p>这节课主要讲述了唐朝诗人杜甫的一首诗《七夕夜话-夏夜星空》以及与之相关的古希腊神话故事。杜甫的诗表达了人生聚少离多的感慨，而古希腊神话中的猎户座和天蝎座则是因为仇恨而被分开的。这两个星座在天上也不相容，猎户座追着天蝎座满世界跑。这种生和伤的难得相见的意境在中西方文化中都有类似的表达。天蝎座是一颗红巨星，位于夏夜的南方低空，适合拍照。它的附近是银河系的中央方向。</p>
+<p>《赠卫八处士》——杜甫</p>
+<p><strong>人生不相见，动如参与商</strong>。<br />
+今夕复何夕，共此灯烛光。<br />
+少壮能几时，鬓发各已苍。<br />
+访旧半为鬼，惊呼热中肠。<br />
+焉知二十载，重上君子堂。<br />
+昔别君未婚，儿女忽成行。<br />
+怡然敬父执，问我来何方。<br />
+问答乃未已，驱儿罗酒浆。(乃未已 一作：未及已；驱儿 一作：儿女)<br />
+夜雨剪春韭，新炊间黄粱。<br />
+主称会面难，一举累十觞。<br />
+十觞亦不醉，感子故意长。<br />
+明日隔山岳，世事两茫茫。</p>
+<p>参商二星，其出没不相见；牛女两宿，惟七夕一相逢。——《幼学琼林》</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311001108.png" alt="" /></p>
+<p>形若参商：难以相见或是有仇</p>
+<p>意见参商：意见不相容</p>
+<h2 id="242七夕夜话-夏夜星空牛郎织女-天鹰座与天琴座"><a class="header" href="#242七夕夜话-夏夜星空牛郎织女-天鹰座与天琴座">2.4.2【七夕夜话-夏夜星空】牛郎织女-天鹰座与天琴座</a></h2>
+<p>这节课主要讲述了牛郎织女的故事以及与天鹰座和天琴座的关系。牛郎是一位善良勤劳的好青年，但是娶不起媳妇，只有一头老牛陪伴。老牛告诉牛郎一个方法，让他去瑶池边上等待仙女下凡沐浴，然后抢走织女的红衣服，要求她嫁给牛郎。织女答应了，他们结为夫妻，过上了幸福的生活。然而，王母娘娘得知此事后，派天兵天将将织女带回天宫，牛郎用牛皮飞上天庭，但被天河隔开。每年七夕之夜，牛郎织女通过鹊桥相会一次。牛郎织女的星座分别是天鹰座和天琴座，织女星是全天第五亮星，距离我们26光年。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311231540.png" alt="" /></p>
+<p>在这节课中，我们学习了关于牛郎织女、天鹰座和天琴座的古希腊神话传说。牛郎星属于天鹰座，而织女星属于天琴座。牛郎星的传说与宙斯和他的众神推翻他的父亲的故事有关。宙斯让自己的女儿赫柏担任宝瓶侍者，后来赫柏嫁给了赫剌克勒斯，所以宝瓶侍者的角色就空缺了。宙斯化身为老鹰，抓走了王子甘尼美提斯，并让他担任宝瓶侍者。宙斯自己也升上了天，成为了天鹰座，而甘尼美提斯用的水瓶也升上了天，成为了宝瓶座（水瓶座）。织女星属于天琴座，她是阿波罗之子琴手俄耳甫斯的竖琴的主人。俄耳甫斯曾经到冥府找回自己的妻子欧律狄克，但因为违反了规定，他失去了妻子。最后，宙斯把俄耳甫斯的竖琴升上了天，成为了天琴座，让他的琴声永远在天上回响。</p>
+<h2 id="243-七夕夜话-夏夜星空天津横河-天鹅座"><a class="header" href="#243-七夕夜话-夏夜星空天津横河-天鹅座">2.4.3 【七夕夜话-夏夜星空】天津横河-天鹅座</a></h2>
+<p>在这节课中，我们学习了关于天津横河和天鹅座的故事。牛郎星和织女星是隔河相望的，每年只能在七夕之夜才能相见。然而，他们不知道在天河上游有一座天然的桥梁，称为天津，可以让他们随时相会。在天津的上游，有一颗明亮的星星，天津四，与牛郎星和织女星一起形成夏季大三角。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311233600.png" alt="" /></p>
+<p>天津四和其他几颗星星一起构成了天鹅座，它是一只翱翔于天河之上的天鹅。天鹅座的古希腊神话故事涉及太阳神之子阿尔同和他的好朋友赛格纳斯。天津九星横河中的九颗星与天鹅座的九颗星对应。天津四是天鹅座中最明显的星星，它距离我们很远，发出青白色的光芒。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311233943.png" alt="" /></p>
+<p>在天津四附近有一片黑色的区域，被称为煤袋暗星云，其中可能存在恒星诞生的迹象。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311234143.png" alt="" /></p>
+<p>天文学家还发现了一个强烈的x射线源，被认为是黑洞。</p>
+<p>天鹅座是夏季夜空中的一个重要星座。</p>
+<h2 id="244-七夕夜话-夏夜星空人间英雄-武仙座"><a class="header" href="#244-七夕夜话-夏夜星空人间英雄-武仙座">2.4.4 【七夕夜话-夏夜星空】人间英雄-武仙座</a></h2>
+<p>本课介绍了武仙座的故事和特点。武仙座是由几颗星搭成一个孔武有力的壮汉形象，代表了古希腊神话中的英雄赫拉克勒斯。赫拉克勒斯是人间大英雄，打败了危害百姓的狮子和九头蛇怪海德拉。九头蛇怪的毒液成为了赫拉克勒斯的武器。武仙座最著名的天象是武仙座球状星团，直径150光年，包含几十万到上百万颗恒星，距离我们2.5万光年。球状星团属于银河系早期留下的星团，历史悠久。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311234432.png" alt="" /></p>
+<p>此外，还介绍了星团的两大类别，即球状星团和稀疏星团。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311234648.png" alt="" /></p>
+<p>夏季大三角在夏末时最显眼，此时可以观察到牵牛织女星。</p>
+<h2 id="251-王族传说-秋夜星空英雄救美-王族星座传说"><a class="header" href="#251-王族传说-秋夜星空英雄救美-王族星座传说">2.5.1 【王族传说-秋夜星空】英雄救美-王族星座传说</a></h2>
+<p>银河斜挂、飞马当空</p>
+<p>在这节课中，我们学习了关于秋季星空的王族星座传说。视频中提到了秋季四边形，它由四颗星星组成，属于仙女座。我们还了解到了英雄帕修斯的故事，他是宙斯的儿子，奉命去取女妖美杜莎的头颅。帕修斯成功地用盾牌将美杜莎的影像反射给海怪，将其变成了礁石，拯救了公主安德洛美达和王国。为了平息海神波塞冬的不满，宙斯将海怪和帕修斯升上了天空，分别变成了鲸鱼座和英仙座。同时，安德洛美达、国王和王后也被升上了天空，变成了仙女座、仙王座和仙后座。这些故事构成了秋夜星空中的王族星座传说。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311235255.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311234837.png" alt="" /></p>
+<h2 id="252-王族传说-秋夜星空英雄公主-英仙座与仙女座"><a class="header" href="#252-王族传说-秋夜星空英雄公主-英仙座与仙女座">2.5.2 【王族传说-秋夜星空】英雄公主-英仙座与仙女座</a></h2>
+<p>在这节课中，我们学习了关于英仙座和仙女座的内容。英仙座代表着英雄帕修斯，而仙女座代表着公主安德洛美达。我们了解到英仙座在秋夜的星空中的位置，以及它的特点，如英雄帕修斯所提拎的美杜莎的脑袋。我们还学习了英仙座中的变星大陵五，它的亮度会随时间变化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240311235944.png" alt="" /></p>
+<p>此外，我们还了解到英仙座流星雨的形成原因，以及仙女座附近的著名天象仙女座星云。仙女座星云实际上是一个由很多恒星组成的星系，离我们仅有2百万光年的距离。这节课让我们更深入地了解了英仙座和仙女座的故事和特点。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312000156.png" alt="" /></p>
+<h2 id="253-王族传说-秋夜星空仙王座与仙后座"><a class="header" href="#253-王族传说-秋夜星空仙王座与仙后座">2.5.3 【王族传说-秋夜星空】仙王座与仙后座</a></h2>
+<p>在这节课中，我们学习了关于仙王座和仙后座的知识。仙后座是一个呈W形状的星座，可以用来找到北极星。而仙王座是由五颗星搭建成的五边形，其中的α星被称为天钩五，将来会成为北极星。我们还了解到地球的自转轴会发生进动，导致北极星的变化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312000637.png" alt="" /></p>
+<p>此外，我们还学习了仙王座的δ星，它是一颗变光星，变光周期大约为5天。这类变星被称为脉动变星，通过测量它们的变光周期和发光能力，我们可以推测它们的距离。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312001028.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312000821.png" alt="" /></p>
+<p>仙王座和仙后座是秋夜星空中比较显眼的星座，了解它们的知识对我们观测星空有很大帮助。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312001158.png" alt="" /></p>
+<h2 id="254-王族传说-秋夜星空众神窘态-摩羯座南鱼座双鱼座"><a class="header" href="#254-王族传说-秋夜星空众神窘态-摩羯座南鱼座双鱼座">2.5.4 【王族传说-秋夜星空】众神窘态-摩羯座南鱼座双鱼座</a></h2>
+<p>在这节课中，我们继续仰望秋夜的星空，学习了摩羯座、南鱼座和双鱼座的故事。摩羯座是牧神潘恩变成的半羊半鱼的形象，而南鱼座是爱神阿佛洛狄特变成的鱼的形象。双鱼座则是阿佛洛狄特和她的儿子厄洛斯一起变成的两条鱼。这些形象都是众神在宙斯推翻他的父亲后变成的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312001444.png" alt="" /></p>
+<p>我们还了解到北落师门是一颗明亮的星，属于摩羯座的一部分。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312001542.png" alt="" /></p>
+<p>此外，我们还了解到北落师门周围可能存在行星，并且双鱼座是黄道星座中的一个重要星座。在秋天的夜晚，我们可以静静地观赏这些充满神话传说的星座。</p>
+<p>北落师门，毕宿五，心宿二，轩辕十四称为四大王星</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240312001729.png" alt="" /></p>
+<h2 id="第二章测试题"><a class="header" href="#第二章测试题">第二章测试题</a></h2>
+<p>错题序号：10、11、20、21</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240313230830.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="第一章序—天上的街市.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="第三章月球故事.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="第一章序—天上的街市.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="第三章月球故事.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

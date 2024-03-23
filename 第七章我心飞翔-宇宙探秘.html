@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第七章我心飞翔-宇宙探秘 - 天文學</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Courses</li><li class="chapter-item expanded "><a href="天文漫谈.html"><strong aria-hidden="true">2.</strong> 天文漫谈</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="第一章序—天上的街市.html"><strong aria-hidden="true">2.1.</strong> 第一章序—天上的街市</a></li><li class="chapter-item expanded "><a href="第二章仰望星空—星座故事.html"><strong aria-hidden="true">2.2.</strong> 第二章仰望星空—星座故事</a></li><li class="chapter-item expanded "><a href="第三章月球故事.html"><strong aria-hidden="true">2.3.</strong> 第三章月球故事</a></li><li class="chapter-item expanded "><a href="第四章太阳系之旅.html"><strong aria-hidden="true">2.4.</strong> 第四章太阳系之旅</a></li><li class="chapter-item expanded "><a href="第五章恒星世界.html"><strong aria-hidden="true">2.5.</strong> 第五章恒星世界</a></li><li class="chapter-item expanded "><a href="第六章银河系与河外星系.html"><strong aria-hidden="true">2.6.</strong> 第六章银河系与河外星系</a></li><li class="chapter-item expanded "><a href="第七章我心飞翔-宇宙探秘.html" class="active"><strong aria-hidden="true">2.7.</strong> 第七章我心飞翔-宇宙探秘</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Books</li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">天文學</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="第七章我心飞翔-宇宙探秘"><a class="header" href="#第七章我心飞翔-宇宙探秘">第七章我心飞翔-宇宙探秘</a></h1>
+<ul>
+<li><a href="#711-%E4%BA%BA%E7%B1%BB%E5%AF%B9%E5%AE%87%E5%AE%99%E7%9A%84%E8%AE%A4%E8%AF%86%E5%A4%A9%E9%97%AE-%E5%8F%A4%E4%BB%A3%E6%9C%B4%E7%B4%A0%E5%A4%A9%E5%9C%B0%E8%A7%82">7.1.1 【人类对宇宙的认识】天问-古代朴素天地观</a></li>
+<li><a href="#712-%E4%BA%BA%E7%B1%BB%E5%AF%B9%E5%AE%87%E5%AE%99%E7%9A%84%E8%AE%A4%E8%AF%86%E4%BB%8E%E7%A5%9E%E7%A7%98%E5%93%B2%E5%AD%A6%E5%88%B0%E7%90%86%E6%80%A7%E7%A7%91%E5%AD%A6">7.1.2 【人类对宇宙的认识】从神秘哲学到理性科学</a></li>
+<li><a href="#713-%E4%BA%BA%E7%B1%BB%E5%AF%B9%E5%AE%87%E5%AE%99%E7%9A%84%E8%AE%A4%E8%AF%86%E7%9C%9F%E7%90%86%E7%9A%84%E8%89%B0%E9%9A%BE%E8%AF%81%E6%98%8E-%E8%BF%91%E4%BB%A3%E5%A4%A9%E6%96%87%E5%AD%A6">7.1.3 【人类对宇宙的认识】真理的艰难证明-近代天文学</a></li>
+<li><a href="#721%E5%AE%87%E5%AE%99%E6%9C%AC%E8%B4%A8%E5%AE%87%E5%AE%99%E7%94%BB%E5%83%8F">7.2.1【宇宙本质】宇宙画像</a></li>
+<li><a href="#722%E5%AE%87%E5%AE%99%E6%9C%AC%E8%B4%A8%E5%AE%87%E5%AE%99%E4%B9%8B%E5%85%89">7.2.2【宇宙本质】宇宙之光</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%E6%B5%8B%E8%AF%95%E9%A2%98">第七章测试题</a></li>
+</ul>
+<h2 id="711-人类对宇宙的认识天问-古代朴素天地观"><a class="header" href="#711-人类对宇宙的认识天问-古代朴素天地观">7.1.1 【人类对宇宙的认识】天问-古代朴素天地观</a></h2>
+<p>在这节课中，我们回顾了人类对宇宙的认识，特别是关于天地的起源。</p>
+<p>古代中国的一些民族认为天地起源于一片混沌，最早的传说是盘古开天地。我们小时候常常认为大地是一个平面，天空像苍穹一样覆盖着大地，形成了天圆地方的观念。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321231836.png" alt="" /></p>
+<p>古代中国还有浑天说和宣夜说，浑天说认为地球是圆的，天体是由气组成的，打破了天与地的界限，提出了宇宙无限的思想。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321232125.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321232253.png" alt="" /></p>
+<p>古代西方的天地观也有类似的观点，认为日月星辰分布在同心的球壳上，地球位于宇宙的中央。这些观点对于人类对宇宙的认识产生了重大影响。</p>
+<h2 id="712-人类对宇宙的认识从神秘哲学到理性科学"><a class="header" href="#712-人类对宇宙的认识从神秘哲学到理性科学">7.1.2 【人类对宇宙的认识】从神秘哲学到理性科学</a></h2>
+<p>在这节课中，我们了解到人类对宇宙的认识从神秘哲学逐渐转向理性科学。古希腊哲学家泰勒斯提出了恒星和太阳是火球的观点，并进行了测量和预测。毕达哥拉斯根据月相推测月球是球状的，进而推断地球和其他星体也是球状的。亚里士多德提出了宇宙是球状的观点，并解释了行星的运动。然而，地心说存在误差，哥白尼提出了日心说，认为太阳是宇宙的中心。哥白尼的日心说引起了轩然大波。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321233340.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321233411.png" alt="" /></p>
+<h2 id="713-人类对宇宙的认识真理的艰难证明-近代天文学"><a class="header" href="#713-人类对宇宙的认识真理的艰难证明-近代天文学">7.1.3 【人类对宇宙的认识】真理的艰难证明-近代天文学</a></h2>
+<p>在近代天文学的发展中，日心说的诞生引发了学术界的思考和争议，教会和教廷对日心说的拥护者进行迫害。布鲁诺是日心说的坚定拥护者，他为了维护真理而被教廷烧死。布鲁诺还进一步拓展了日心说，提出了宇宙是无限的，地球只是普通的行星。丹麦天文学家第谷观测行星并提出改良模型，但他仍坚持地心说。开普勒在第谷观测资料的基础上提出了行星运动三定律，伽利略通过望远镜发现了月亮的环形山和木星的卫星，对地心说进行了否定。牛顿发现了万有引力定律和经典力学，解决了天体运动的推动力问题。康德和拉普拉斯提出了星云学说，解决了牛顿之惑。人类对宇宙的认识不断进步，仰望星空的先哲们功不可没。</p>
+<h2 id="721宇宙本质宇宙画像"><a class="header" href="#721宇宙本质宇宙画像">7.2.1【宇宙本质】宇宙画像</a></h2>
+<p>本视频介绍了宇宙的起源与演化以及它的认识过程。古代中国的盖天说、浑天说，以及西方的地心说、日心说都认为天是有一定形状的，宇宙有限。但是也有人提出宇宙是无限的，如中国的宣夜说和布鲁诺的宇宙无限论。牛顿也认为宇宙是无限的。然而，奥伯斯佯谬提出了宇宙无限论的挑战。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240321235830.png" alt="" /></p>
+<p>爱因斯坦的广义相对论发表后，人们逐渐认识到宇宙是膨胀的，没有中心。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000008.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000104.png" alt="" /></p>
+<p>哈勃发现星系的红移量与距离成正比，证明了宇宙的膨胀。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000254.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000333.png" alt="" /></p>
+<p>伽莫夫解决了氦丰度之疑。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000445.png" alt="" /></p>
+<p>彭齐亚斯和威尔逊发现了宇宙背景辐射，支持了宇宙大爆炸理论。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000541.png" alt="" /></p>
+<h2 id="722宇宙本质宇宙之光"><a class="header" href="#722宇宙本质宇宙之光">7.2.2【宇宙本质】宇宙之光</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000804.png" alt="" /></p>
+<p>根据宇宙起源于一个原始的高密度高温的原子或者火球的爆炸的观点，宇宙从爆炸开始膨胀，并且还在继续膨胀。宇宙的演化历程包含了高密度高温的原始原子、质子、电子、中子的产生，以及氢和氦等元素的形成。在爆炸后40年到百万年之间，电子开始围绕着原子核运行，形成了原子，宇宙中的气体呈现中性状态。之后恒星和星系开始产生，宇宙至今仍在膨胀。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000936.png" alt="" /></p>
+<p>宇宙的年龄大约在138亿年以上，最远的类星体距离我们为130多亿光年。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322001132.png" alt="" /></p>
+<p>宇宙的未来可能是继续膨胀或者收缩回来，而暗物质的存在可能决定了宇宙的发展。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322001319.png" alt="" /></p>
+<h2 id="第七章测试题"><a class="header" href="#第七章测试题">第七章测试题</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322000610.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="第六章银河系与河外星系.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="第六章银河系与河外星系.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

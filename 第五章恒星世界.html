@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第五章恒星世界 - 天文學</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Courses</li><li class="chapter-item expanded "><a href="天文漫谈.html"><strong aria-hidden="true">2.</strong> 天文漫谈</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="第一章序—天上的街市.html"><strong aria-hidden="true">2.1.</strong> 第一章序—天上的街市</a></li><li class="chapter-item expanded "><a href="第二章仰望星空—星座故事.html"><strong aria-hidden="true">2.2.</strong> 第二章仰望星空—星座故事</a></li><li class="chapter-item expanded "><a href="第三章月球故事.html"><strong aria-hidden="true">2.3.</strong> 第三章月球故事</a></li><li class="chapter-item expanded "><a href="第四章太阳系之旅.html"><strong aria-hidden="true">2.4.</strong> 第四章太阳系之旅</a></li><li class="chapter-item expanded "><a href="第五章恒星世界.html" class="active"><strong aria-hidden="true">2.5.</strong> 第五章恒星世界</a></li><li class="chapter-item expanded "><a href="第六章银河系与河外星系.html"><strong aria-hidden="true">2.6.</strong> 第六章银河系与河外星系</a></li><li class="chapter-item expanded "><a href="第七章我心飞翔-宇宙探秘.html"><strong aria-hidden="true">2.7.</strong> 第七章我心飞翔-宇宙探秘</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Books</li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">天文學</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="第五章恒星世界"><a class="header" href="#第五章恒星世界">第五章恒星世界</a></h1>
+<ul>
+<li><a href="#511-%E6%81%92%E6%98%9F%E6%A6%82%E8%BF%B0%E6%81%92%E6%98%9F%E7%9A%84%E4%BA%AE%E5%BA%A6">5.1.1 【恒星概述】恒星的亮度</a></li>
+<li><a href="#512-%E6%81%92%E6%98%9F%E6%A6%82%E8%BF%B0%E6%81%92%E6%98%9F%E7%9A%84%E8%B7%9D%E7%A6%BB">5.1.2 【恒星概述】恒星的距离</a></li>
+<li><a href="#513-%E6%81%92%E6%98%9F%E6%A6%82%E8%BF%B0%E6%81%92%E6%98%9F%E7%9A%84%E5%B0%BA%E5%BA%A6">5.1.3 【恒星概述】恒星的尺度</a></li>
+<li><a href="#514-%E6%81%92%E6%98%9F%E6%A6%82%E8%BF%B0%E6%81%92%E6%98%9F%E7%9A%84%E8%B4%A8%E9%87%8F">5.1.4 【恒星概述】恒星的质量</a></li>
+<li><a href="#515-%E6%81%92%E6%98%9F%E6%A6%82%E8%BF%B0%E6%81%92%E6%98%9F%E7%9A%84%E6%B8%A9%E5%BA%A6%E4%B8%8E%E5%85%89%E8%B0%B1%E5%9E%8B">5.1.5 【恒星概述】恒星的温度与光谱型</a></li>
+<li><a href="#521-%E6%81%92%E6%98%9F%E7%9A%84%E8%B5%B7%E6%BA%90%E4%B8%8E%E6%BC%94%E5%8C%96%E6%81%92%E6%98%9F%E7%9A%84%E8%AF%9E%E7%94%9F">5.2.1 【恒星的起源与演化】恒星的诞生</a></li>
+<li><a href="#522-%E6%81%92%E6%98%9F%E7%9A%84%E8%B5%B7%E6%BA%90%E4%B8%8E%E6%BC%94%E5%8C%96%E6%81%92%E6%98%9F%E7%9A%84%E9%9D%92%E5%A3%AE%E5%B9%B4-%E4%B8%BB%E5%BA%8F%E9%98%B6%E6%AE%B5">5.2.2 【恒星的起源与演化】恒星的青壮年-主序阶段</a></li>
+<li><a href="#523-%E6%81%92%E6%98%9F%E7%9A%84%E8%B5%B7%E6%BA%90%E4%B8%8E%E6%BC%94%E5%8C%96%E6%81%92%E6%98%9F%E7%9A%84%E5%BD%92%E5%AE%BF">5.2.3 【恒星的起源与演化】恒星的归宿</a></li>
+<li><a href="#531-%E6%81%92%E6%98%9F%E5%92%8F%E5%8F%B9-%E6%81%92%E6%98%9F%E6%9C%80%E5%90%8E%E7%9A%84%E8%BE%89%E7%85%8C-%E8%B6%85%E6%96%B0%E6%98%9F%E7%88%86%E5%8F%91">5.3.1 【恒星咏叹】 恒星最后的辉煌-超新星爆发</a></li>
+<li><a href="#532-%E6%81%92%E6%98%9F%E5%92%8F%E5%8F%B9-%E5%AE%87%E5%AE%99%E7%81%AF%E5%A1%94-%E4%B8%AD%E5%AD%90%E6%98%9F">5.3.2 【恒星咏叹】 宇宙灯塔-中子星</a></li>
+<li><a href="#533-%E6%81%92%E6%98%9F%E5%92%8F%E5%8F%B9-%E5%AE%87%E5%AE%99%E5%B9%BD%E7%81%B5-%E9%BB%91%E6%B4%9E">5.3.3 【恒星咏叹】 宇宙幽灵-黑洞</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E6%B5%8B%E8%AF%95%E9%A2%98">第五章测试题</a></li>
+</ul>
+<h2 id="511-恒星概述恒星的亮度"><a class="header" href="#511-恒星概述恒星的亮度">5.1.1 【恒星概述】恒星的亮度</a></h2>
+<p>这节课主要讲解了恒星的亮度。视频中提到，恒星的亮度与其发光能力和距离有关。恒星的亮度通过视星等和绝对星等来表示，视星等是指从地球上观测到的恒星亮度，而绝对星等是将恒星放在32.6光年距离上观测得到的亮度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322224248.png" alt="" /></p>
+<p>老师讲这里取对数是为了和人的眼睛感觉能力相匹配。。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322224603.png" alt="" /></p>
+<p>视频还介绍了一些恒星的亮度数据，如太阳的视星等为-27等，绝对星等为4.83等；天狼星的绝对星等为1.4等；织女星的绝对星等为0.58等；参宿四的绝对星等为-6.0等；天津四的绝对星等为-7.2等；参宿七的绝对星等为-6.9等。通过这些数据，我们可以了解到不同恒星的亮度差异。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322224926.png" alt="" /></p>
+<h2 id="512-恒星概述恒星的距离"><a class="header" href="#512-恒星概述恒星的距离">5.1.2 【恒星概述】恒星的距离</a></h2>
+<p>肉眼可见最近的恒星（除太阳以外）是半人马座的比邻星（南门二），最远的是船底座的海山二。</p>
+<p>本视频介绍了恒星的距离测量方法。首先讲解了三角视差法，通过测量恒星在地球公转轨道两端的视差角来计算距离。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322225601.png" alt="" /></p>
+<p>然后介绍了分光视差法，通过测量恒星的谱线对的强度比来计算距离。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322225719.png" alt="" /></p>
+<p>最后提到了造父型变星，通过测量变光周期和发光能力来计算距离。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322225830.png" alt="" /></p>
+<p>这些方法只适用于距离较近的恒星，对于更遥远的恒星距离的测量较为困难。造父型变星还可以用于测量星系的距离。</p>
+<h2 id="513-恒星概述恒星的尺度"><a class="header" href="#513-恒星概述恒星的尺度">5.1.3 【恒星概述】恒星的尺度</a></h2>
+<p>这节课主要讲解了恒星的尺度。恒星的大小差异很大：熟悉的参宿四，它的直径是太阳的800倍；织女星和牛郎星相比也很小；大犬座的VY星被认为是目前观测到的最大恒星，直径达到太阳的1420倍；最近认为造父四是最大的恒星，直径达到太阳的1400-1600倍。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230219.png" alt="" /></p>
+<p>测量恒星大小的方法有光学干涉法和掩星法等，但对于遥远的恒星来说，只能粗略估计其大小。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230500.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230545.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230620.png" alt="" /></p>
+<h2 id="514-恒星概述恒星的质量"><a class="header" href="#514-恒星概述恒星的质量">5.1.4 【恒星概述】恒星的质量</a></h2>
+<p>在这节课中，我们学习了恒星的质量。相对于恒星的大小，恒星的质量差异并不大，大多数恒星的质量介于 8% 到 65 倍太阳质量之间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230841.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322230926.png" alt="" /></p>
+<p>恒星的质量可以通过测量双星系统的公转轨道参数来计算，也可以通过恒星的发光能力和绝对星等来估算。恒星的质量差异导致了密度的极大差异，从类似太阳的主序星的平均密度与地球相近，到红超巨星的密度比地球大气还要稀薄，再到白矮星和中子星的密度分别达到百万倍和百万亿倍地球物质的平均密度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231057.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231119.png" alt="" /></p>
+<h2 id="515-恒星概述恒星的温度与光谱型"><a class="header" href="#515-恒星概述恒星的温度与光谱型">5.1.5 【恒星概述】恒星的温度与光谱型</a></h2>
+<p>这节课主要讲解了恒星的温度与光谱类型。</p>
+<p>恒星的颜色可以告诉我们它的温度，温度越高，颜色越偏向蓝色；温度越低，颜色越偏向红色。恒星的光谱类型根据颜色分为M型到O型，对应不同的温度范围。恒星的光谱特征与温度也有关系，不同温度下，同一元素的谱线强度不同。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231331.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231438.png" alt="" /></p>
+<p>赫-罗图是根据恒星的温度和发光能力进行分类的，主序带星是占大部分的恒星，超巨星和巨星温度较低但发光能力较大，白矮星温度较高但发光能力较弱。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231658.png" alt="" /></p>
+<p>赫-罗图还揭示了恒星的起源和演化规律。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240322231743.png" alt="" /></p>
+<h2 id="521-恒星的起源与演化恒星的诞生"><a class="header" href="#521-恒星的起源与演化恒星的诞生">5.2.1 【恒星的起源与演化】恒星的诞生</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323181525.png" alt="" /></p>
+<p>恒星的起源与演化是恒星世界的重要课题。恒星的一生可以类比于人类的一生，包括诞生、婴幼儿时期、主序阶段、老去和死亡。恒星的诞生是通过星际物质的集聚和收缩形成星云，然后星云进一步收缩并点火，形成原恒星。原恒星经过氘的核聚变进一步增温，最终形成正式的恒星进入主序阶段。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323181725.png" alt="" /></p>
+<p>亮星云和暗星云是两种不同的星云类型，它们在外观、成分和形成过程上有明显的区别。</p>
+<p>亮星云是由受到恒星的照射或辐射激发而发出可见光的星云。这些星云通常呈现出明亮的颜色，例如红色、绿色或蓝色，因为它们反射或发射恒星的光线。亮星云通常是由稀薄的热气体组成，具有较高的温度和辐射能力。</p>
+<p>而暗星云则是由尘埃和气体组成的云状结构，它们因此无法发射可见光而呈现出较为暗淡的外观。暗星云通常由密集的尘埃颗粒和分子气体组成，这些尘埃颗粒会吸收周围的光线，因此在可见光波段下呈现为黑暗或透明的状态。暗星云通常是冷的、密集的云，可能是新星际物质的形成区域。</p>
+<p>总的来说，亮星云是由热气体发射或反射恒星光线而呈现出明亮外观的星云，而暗星云则是由吸收光线而呈现出暗淡外观的星云。两者在物理性质、化学成分和形成机制上有所不同，但在恒星形成和宇宙演化的过程中都起到了重要的作用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323181911.png" alt="" /></p>
+<p>发射星云和反射星云是天文学领域中的两种不同类型的星云。星云是由气体和尘埃组成的云状结构，通常与恒星的形成或毁灭过程有关。</p>
+<p>发射星云是指通过恒星的高能辐射，如紫外线或X射线，使周围的气体被激发而发射出可见光的现象。这些星云通常呈现出明亮的红、绿、蓝等颜色，而且通常呈现出较为均匀和扩散的形状。发射星云通常是热的、稀薄的气体云，因此能够发出明亮的辐射。</p>
+<p>反射星云则是指恒星的光线照射到周围的尘埃颗粒上，使其反射出可见光的现象。这些星云通常呈现出含有蓝色或白色的外观，因为尘埃颗粒对于短波长的光比较高度反射。反射星云通常呈现出螺旋形状、尘埃环绕或者凝结物等特征。这些星云通常都是冷的、稠密的尘埃云，因此主要通过反射星星周围的恒星光线来呈现出亮度。</p>
+<p>总的来说，发射星云和反射星云都是受到恒星的光线或辐射的影响，但是表现形式和成因略有不同，因此在观测和研究上也有一些区别。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323182104.png" alt="" /></p>
+<p>暗星云是恒星的摇篮，通过<strong>超新星爆发或恒星风的推动</strong>，星际物质和亮星云可以积聚成暗星云，进一步形成包克球，最终形成原恒星。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323182341.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323182431.png" alt="" /></p>
+<p>恒星的诞生过程需要根据质量的不同而有所差异。恒星质量越大，进入主序带越快。</p>
+<h2 id="522-恒星的起源与演化恒星的青壮年-主序阶段"><a class="header" href="#522-恒星的起源与演化恒星的青壮年-主序阶段">5.2.2 【恒星的起源与演化】恒星的青壮年-主序阶段</a></h2>
+<p>恒星的青壮年阶段是恒星的主序阶段，类似于人类的青壮年时期。在这个阶段，恒星能够发光发热，为宇宙做出贡献。</p>
+<p><strong>恒星的寿命与其质量密切相关，质量越大，核反应速率越快，寿命越短；质量越小，核反应速率越慢，寿命越长</strong>。</p>
+<p>太阳是一个中等质量的恒星，目前在主序阶段已经燃烧了近50亿年，还可以继续燃烧50亿年。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323183147.png" alt="" /></p>
+<p>恒星在主序阶段发生氢的核聚变，释放出巨大的能量。随着星龄的增长，恒星的核聚变加剧，亮度升高，但表面温度下降。</p>
+<p>恒星进入晚年阶段后，会进一步膨胀，贡献了大半辈子的光与热。不同质量的恒星在晚年阶段有不同的演化形式，最终形成黑矮星、白矮星、中子星或黑洞。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323183359.png" alt="" /></p>
+<h2 id="523-恒星的起源与演化恒星的归宿"><a class="header" href="#523-恒星的起源与演化恒星的归宿">5.2.3 【恒星的起源与演化】恒星的归宿</a></h2>
+<p>恒星步入晚年阶段，小质量恒星会变成黑矮星，中质量恒星会变成红巨星，然后坍塌形成白矮星和行星状星云，大质量恒星会发生超新星爆发，形成中子星或黑洞。太阳是中质量恒星，将来会变成红巨星并吞没地球。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323183634.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323184237.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323184643.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323184750.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323184815.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323185037.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323185142.png" alt="" /></p>
+<h2 id="531-恒星咏叹-恒星最后的辉煌-超新星爆发"><a class="header" href="#531-恒星咏叹-恒星最后的辉煌-超新星爆发">5.3.1 【恒星咏叹】 恒星最后的辉煌-超新星爆发</a></h2>
+<p>恒星的归宿与质量密切相关。小质量恒星最终会变成黑矮星，而中质量恒星会膨胀成红巨星，然后坍塌形成超新星爆发，遗留下白矮星和行星状星云。大质量恒星的超新星爆发亮度急剧升高，可以达到数百亿倍太阳的亮度。超新星爆发会形成中子星或黑洞。</p>
+<p>铁元素的结构极其稳定，在聚变时不释放能量。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323185644.png" alt="" /></p>
+<p>超新星爆发的例子包括天关客星和超新星1987A。未来还有一颗距离我们最远的恒星海山二可能发生超级超新星爆发。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323185826.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323185913.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190117.png" alt="" /></p>
+<h2 id="532-恒星咏叹-宇宙灯塔-中子星"><a class="header" href="#532-恒星咏叹-宇宙灯塔-中子星">5.3.2 【恒星咏叹】 宇宙灯塔-中子星</a></h2>
+<p>这节课介绍了脉冲星和中子星的特点和形成过程。脉冲星是通过射电望远镜观测到的一种射电源，其强度会周期性地变化，类似于灯塔的闪烁。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190233.png" alt="" /></p>
+<p>中子星也被称为脉冲星。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190328.png" alt="" /></p>
+<p>中子星是由大质量恒星的坍塌形成的，其密度比白矮星高得多。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190502.png" alt="" /></p>
+<p>中子星具有强大的磁场，可以产生聚焦的射电束，类似于探照灯。脉冲星的自转速度可以达到700转/秒，说明中子星的结构能够承受如此高速的自转。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190616.png" alt="" /></p>
+<p>脉冲星可以作为宇航的航标，为航天器导航。先驱者号飞船带着铝盘飞出太阳系，上面镌刻了脉冲星与太阳系的相对位置关系，希望能与外星人进行交流。</p>
+<h2 id="533-恒星咏叹-宇宙幽灵-黑洞"><a class="header" href="#533-恒星咏叹-宇宙幽灵-黑洞">5.3.3 【恒星咏叹】 宇宙幽灵-黑洞</a></h2>
+<p>在这节课中，我们学习了关于黑洞的知识。太阳质量大于8倍的恒星会发生超新星爆发，遗留下中子星；而质量超过20倍的恒星则可能形成黑洞。</p>
+<p>黑洞是一种极其强大的引力场，使附近的物质无法逃逸。黑洞的大小由史瓦西半径决定，太阳的史瓦西半径约为3km。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323190944.png" alt="" /></p>
+<p>视界：我们所能够看见的范围的界限</p>
+<p>史瓦西半径与天体质量成正比。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323191252.png" alt="" /></p>
+<p>天文学家通过观测强烈的X射线源和光偏振现象发现了黑洞，并且最近还发现了最年轻的黑洞。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323191358.png" alt="" /></p>
+<p>黑洞附近的引力场会导致光线弯曲和物体被拉长，这是空间的弯曲和潮汐力造成的。黑洞是宇宙中的幽灵，值得我们继续探索。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323191453.png" alt="" /></p>
+<h2 id="第五章测试题"><a class="header" href="#第五章测试题">第五章测试题</a></h2>
+<p>错题序号：6、12、25</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240323201353.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="第四章太阳系之旅.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="第六章银河系与河外星系.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="第四章太阳系之旅.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="第六章银河系与河外星系.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

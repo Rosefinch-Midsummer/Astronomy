@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一章序—天上的街市 - 天文學</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Courses</li><li class="chapter-item expanded "><a href="天文漫谈.html"><strong aria-hidden="true">2.</strong> 天文漫谈</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="第一章序—天上的街市.html" class="active"><strong aria-hidden="true">2.1.</strong> 第一章序—天上的街市</a></li><li class="chapter-item expanded "><a href="第二章仰望星空—星座故事.html"><strong aria-hidden="true">2.2.</strong> 第二章仰望星空—星座故事</a></li><li class="chapter-item expanded "><a href="第三章月球故事.html"><strong aria-hidden="true">2.3.</strong> 第三章月球故事</a></li><li class="chapter-item expanded "><a href="第四章太阳系之旅.html"><strong aria-hidden="true">2.4.</strong> 第四章太阳系之旅</a></li><li class="chapter-item expanded "><a href="第五章恒星世界.html"><strong aria-hidden="true">2.5.</strong> 第五章恒星世界</a></li><li class="chapter-item expanded "><a href="第六章银河系与河外星系.html"><strong aria-hidden="true">2.6.</strong> 第六章银河系与河外星系</a></li><li class="chapter-item expanded "><a href="第七章我心飞翔-宇宙探秘.html"><strong aria-hidden="true">2.7.</strong> 第七章我心飞翔-宇宙探秘</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Books</li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">天文學</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="第一章-序天上的街市"><a class="header" href="#第一章-序天上的街市">第一章 序—天上的街市</a></h1>
+<ul>
+<li><a href="#%E5%AE%87%E5%AE%99">宇宙</a></li>
+<li><a href="#%E9%99%84%E5%BD%95%E6%98%9F%E5%BA%A7%E5%8F%8A%E4%BA%AE%E6%98%9F%E5%90%8D%E5%AF%B9%E7%85%A7%E8%A1%A8">附录星座及亮星名对照表</a>
+<ul>
+<li><a href="#%E6%98%9F%E5%BA%A7">星座</a></li>
+<li><a href="#%E6%98%9F%E5%90%8D">星名</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%B5%8B%E8%AF%95%E9%A2%98">第一章测试题</a></li>
+</ul>
+<h2 id="宇宙"><a class="header" href="#宇宙">宇宙</a></h2>
+<p>四方上下曰宇，往古来今曰宙。——战国 尸佼《尸子》</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240304235205.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240304235239.png" alt="" /></p>
+<p>天文单位</p>
+<p>光年</p>
+<p>绝对星等</p>
+<p>视星等</p>
+<p>一等星比六等星亮 100 倍。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240304235726.png" alt="" /></p>
+<h2 id="附录星座及亮星名对照表"><a class="header" href="#附录星座及亮星名对照表">附录星座及亮星名对照表</a></h2>
+<p>来源： https://www.astro-init.top/index.php</p>
+<h3 id="星座"><a class="header" href="#星座">星座</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>中文</th><th>拉丁缩写</th><th>拉丁名</th><th>所有格</th><th>大致赤经R.A.[h]</th><th>大致赤纬Dec.[°]</th></tr></thead><tbody>
+<tr><td>仙女座</td><td>And</td><td>Andromeda</td><td>Andromedae</td><td>1</td><td>+40</td></tr>
+<tr><td>唧筒座</td><td>Ant</td><td>Antila</td><td>Antliae</td><td>10</td><td>-35</td></tr>
+<tr><td>天燕座</td><td>Aps</td><td>Apus</td><td>Apodis</td><td>16</td><td>-75</td></tr>
+<tr><td>宝瓶座</td><td>Aqr</td><td>Aquarius</td><td>Aquilae</td><td>23</td><td>-15</td></tr>
+<tr><td>天鹰座</td><td>Aql</td><td>Aquila</td><td>Aquatii</td><td>20</td><td>+5</td></tr>
+<tr><td>天坛座</td><td>Ara</td><td>Ara</td><td>Arae</td><td>17</td><td>-55</td></tr>
+<tr><td>白羊座</td><td>Ari</td><td>Aries</td><td>Arietis</td><td>3</td><td>+20</td></tr>
+<tr><td>御夫座</td><td>Aur</td><td>Auriga</td><td>Aurigae</td><td>6</td><td>+40</td></tr>
+<tr><td>牧夫座</td><td>Boo</td><td>Boötis</td><td>Boötis</td><td>15</td><td>+30</td></tr>
+<tr><td>雕具座</td><td>Cae</td><td>Caelum</td><td>Caeli</td><td>5</td><td>-40</td></tr>
+<tr><td>鹿豹座</td><td>Cam</td><td>Camelopardalis</td><td>Camelopardalis</td><td>6</td><td>+70</td></tr>
+<tr><td>巨蟹座</td><td>Cnc</td><td>Cancer</td><td>Cancri</td><td>9</td><td>+20</td></tr>
+<tr><td>猎犬座</td><td>CVn</td><td>Canes Venatici</td><td>Canum Venaticorum</td><td>13</td><td>+40</td></tr>
+<tr><td>大犬座</td><td>CMa</td><td>Canis Major</td><td>Canis Majoris</td><td>7</td><td>-20</td></tr>
+<tr><td>小犬座</td><td>CMi</td><td>Canis Minor</td><td>Canis Minioris</td><td>8</td><td>+5</td></tr>
+<tr><td>摩羯座</td><td>Cap</td><td>Capricornus</td><td>Capricorni</td><td>21</td><td>-20</td></tr>
+<tr><td>船底座</td><td>Car</td><td>Carina</td><td>Carinae</td><td>9</td><td>-60</td></tr>
+<tr><td>仙后座</td><td>Cas</td><td>Cassiopeia</td><td>Cassiopeiae</td><td>1</td><td>+60</td></tr>
+<tr><td>半人马座</td><td>Cen</td><td>Centaurus</td><td>Centauri</td><td>13</td><td>-50</td></tr>
+<tr><td>仙王座</td><td>Cep</td><td>Cepheus</td><td>Cephei</td><td>22</td><td>+70</td></tr>
+<tr><td>鲸鱼座</td><td>Cet</td><td>Cetus</td><td>Ceti</td><td>2</td><td>-10</td></tr>
+<tr><td>蝘蜓座</td><td>Cha</td><td>Chamaeleon</td><td>Chamaeleontis</td><td>11</td><td>-80</td></tr>
+<tr><td>圆规座</td><td>Cir</td><td>Circus</td><td>Circini</td><td>15</td><td>-60</td></tr>
+<tr><td>天鸽座</td><td>Col</td><td>Columba</td><td>Columbae</td><td>6</td><td>-35</td></tr>
+<tr><td>后发座</td><td>Com</td><td>Coma Berenices</td><td>Comae Berenices</td><td>13</td><td>+20</td></tr>
+<tr><td>南冕座</td><td>CrA</td><td>Corona Australis</td><td>Coronae Australis</td><td>19</td><td>-40</td></tr>
+<tr><td>北冕座</td><td>CrB</td><td>Corona Borealis</td><td>Coronae Borealis</td><td>16</td><td>+30</td></tr>
+<tr><td>乌鸦座</td><td>Crv</td><td>Corvus</td><td>Corvi</td><td>12</td><td>-20</td></tr>
+<tr><td>巨爵座</td><td>Crt</td><td>Crater</td><td>Crateris</td><td>11</td><td>-15</td></tr>
+<tr><td>南十字座</td><td>Cru</td><td>Crux</td><td>Crucis</td><td>12</td><td>-60</td></tr>
+<tr><td>天鹅座</td><td>Cyg</td><td>Cygnus</td><td>Cygni</td><td>21</td><td>+40</td></tr>
+<tr><td>海豚座</td><td>Del</td><td>Delphinus</td><td>Delphini</td><td>21</td><td>+10</td></tr>
+<tr><td>剑鱼座</td><td>Dor</td><td>Dorado</td><td>Doradus</td><td>5</td><td>-65</td></tr>
+<tr><td>天龙座</td><td>Dra</td><td>Draco</td><td>Draconis</td><td>17</td><td>+65</td></tr>
+<tr><td>小马座</td><td>Equ</td><td>Equuleus</td><td>Equulei</td><td>21</td><td>+10</td></tr>
+<tr><td>波江座</td><td>Eri</td><td>Eridanus</td><td>Eridani</td><td>3</td><td>-20</td></tr>
+<tr><td>天炉座</td><td>For</td><td>Fornax</td><td>Fornacis</td><td>3</td><td>-30</td></tr>
+<tr><td>双子座</td><td>Gem</td><td>Gemini</td><td>Geminorum</td><td>7</td><td>+20</td></tr>
+<tr><td>天鹤座</td><td>Gru</td><td>Grus</td><td>Gruis</td><td>22</td><td>-45</td></tr>
+<tr><td>武仙座</td><td>Her</td><td>Hercules</td><td>Herculis</td><td>17</td><td>+30</td></tr>
+<tr><td>时钟座</td><td>Hor</td><td>Horologium</td><td>Horologii</td><td>3</td><td>-60</td></tr>
+<tr><td>长蛇座</td><td>Hya</td><td>Hydra</td><td>Hydrae</td><td>10</td><td>-20</td></tr>
+<tr><td>水蛇座</td><td>Hyi</td><td>Hydrus</td><td>Hydri</td><td>2</td><td>-75</td></tr>
+<tr><td>印第安座</td><td>Ind</td><td>Indus</td><td>Indi</td><td>21</td><td>-55</td></tr>
+<tr><td>蝎虎座</td><td>Lac</td><td>Lacerta</td><td>Lacerate</td><td>22</td><td>+45</td></tr>
+<tr><td>狮子座</td><td>Leo</td><td>Leo</td><td>Leonis</td><td>11</td><td>+15</td></tr>
+<tr><td>小狮座</td><td>LMi</td><td>Leo Minor</td><td>Leonis Minoris</td><td>10</td><td>+35</td></tr>
+<tr><td>天兔座</td><td>Lep</td><td>Lepus</td><td>Leporis</td><td>6</td><td>-20</td></tr>
+<tr><td>天秤座</td><td>Lib</td><td>Libra</td><td>Librae</td><td>15</td><td>-15</td></tr>
+<tr><td>豺狼座</td><td>Lup</td><td>Lupus</td><td>Lupi</td><td>15</td><td>-45</td></tr>
+<tr><td>天猫座</td><td>Lyn</td><td>Lynx</td><td>Lyncis</td><td>8</td><td>+45</td></tr>
+<tr><td>天琴座</td><td>Lyr</td><td>Lyra</td><td>Lyrae</td><td>19</td><td>+40</td></tr>
+<tr><td>山案座</td><td>Men</td><td>Mensa</td><td>Mensae</td><td>5</td><td>-80</td></tr>
+<tr><td>显微镜座</td><td>Mic</td><td>Microscopium</td><td>Microscopii</td><td>21</td><td>-35</td></tr>
+<tr><td>麒麟座</td><td>Mon</td><td>Monoceros</td><td>Monocerotis</td><td>7</td><td>-5</td></tr>
+<tr><td>苍蝇座</td><td>Mus</td><td>Musca</td><td>Muscae</td><td>12</td><td>-70</td></tr>
+<tr><td>矩尺座</td><td>Nor</td><td>Norma</td><td>Normae</td><td>16</td><td>-50</td></tr>
+<tr><td>南极座</td><td>Oct</td><td>Octans</td><td>Octantis</td><td>22</td><td>-85</td></tr>
+<tr><td>蛇夫座</td><td>Oph</td><td>Ophiuchus</td><td>Ophiuchi</td><td>17</td><td>0</td></tr>
+<tr><td>猎户座</td><td>Ori</td><td>Orion</td><td>Orionis</td><td>5</td><td>+5</td></tr>
+<tr><td>孔雀座</td><td>Pav</td><td>Pavo</td><td>Pavonis</td><td>20</td><td>-65</td></tr>
+<tr><td>飞马座</td><td>Peg</td><td>Pegasus</td><td>Pegasi</td><td>22</td><td>+20</td></tr>
+<tr><td>英仙座</td><td>Per</td><td>Perseus</td><td>Persei</td><td>3</td><td>+45</td></tr>
+<tr><td>凤凰座</td><td>Phe</td><td>Phoenix</td><td>Phoenicis</td><td>1</td><td>-50</td></tr>
+<tr><td>绘架座</td><td>Pic</td><td>Pictor</td><td>Pictoris</td><td>6</td><td>-55</td></tr>
+<tr><td>双鱼座</td><td>Psc</td><td>Pisces</td><td>Piscium</td><td>1</td><td>+15</td></tr>
+<tr><td>南鱼座</td><td>PsA</td><td>Piscis Austrinus</td><td>Piscis Austrini</td><td>22</td><td>-30</td></tr>
+<tr><td>船尾座</td><td>Pup</td><td>Puppis</td><td>Puppis</td><td>8</td><td>-40</td></tr>
+<tr><td>罗盘座</td><td>Pyx</td><td>Pyxis</td><td>Pyxidis</td><td>9</td><td>-30</td></tr>
+<tr><td>网罟座</td><td>Ret</td><td>Reticulum</td><td>Reticuli</td><td>4</td><td>-60</td></tr>
+<tr><td>天箭座</td><td>Sge</td><td>Sagitta</td><td>Sagittae</td><td>20</td><td>+10</td></tr>
+<tr><td>人马座</td><td>Sgr</td><td>Sagittarius</td><td>Sagittarii</td><td>19</td><td>-25</td></tr>
+<tr><td>天蝎座</td><td>Sco</td><td>Scorpius</td><td>Scorpii</td><td>17</td><td>-40</td></tr>
+<tr><td>玉夫座</td><td>Scl</td><td>Sculptor</td><td>Sculptoris</td><td>0</td><td>-30</td></tr>
+<tr><td>盾牌座</td><td>Sct</td><td>Scutum</td><td>Scuti</td><td>19</td><td>-10</td></tr>
+<tr><td>巨蛇座</td><td>Ser</td><td>Serpens</td><td>Serpentis</td><td>17</td><td>0</td></tr>
+<tr><td>六分仪座</td><td>Sex</td><td>Sextans</td><td>Sextanis</td><td>10</td><td>0</td></tr>
+<tr><td>金牛座</td><td>Tau</td><td>Taurus</td><td>Tauri</td><td>4</td><td>+15</td></tr>
+<tr><td>望远镜座</td><td>Tel</td><td>Telescopium</td><td>Telescopi</td><td>19</td><td>-50</td></tr>
+<tr><td>三角座</td><td>Tri</td><td>Triangulum</td><td>Trianguli</td><td>2</td><td>+30</td></tr>
+<tr><td>南三角座</td><td>TrA</td><td>Triangulum Australe</td><td>Trianguli Australis</td><td>16</td><td>-65</td></tr>
+<tr><td>杜鹃座</td><td>Tuc</td><td>Tucana</td><td>Tucanae</td><td>0</td><td>-65</td></tr>
+<tr><td>大熊座</td><td>UMa</td><td>Ursa Major</td><td>Ursae Majoris</td><td>11</td><td>+50</td></tr>
+<tr><td>小熊座</td><td>UMi</td><td>Ursa Minor</td><td>Ursae Minoris</td><td>15</td><td>+70</td></tr>
+<tr><td>船帆座</td><td>Vel</td><td>Vela</td><td>Velorum</td><td>9</td><td>-50</td></tr>
+<tr><td>室女座</td><td>Vir</td><td>Virgo</td><td>Virginis</td><td>13</td><td>0</td></tr>
+<tr><td>飞鱼座</td><td>Vol</td><td>Volans</td><td>Volantis</td><td>8</td><td>-70</td></tr>
+<tr><td>狐狸座</td><td>Vul</td><td>Vulpecula</td><td>Vulpeculae</td><td>20</td><td>+25</td></tr>
+</tbody></table>
+</div>
+<h3 id="星名"><a class="header" href="#星名">星名</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>中文名</th><th>拜耳名</th><th>英文名</th><th>赤经α(J2000)</th><th>赤纬δ(J2000)</th><th>mV</th><th>B-V</th><th>光谱型</th><th>距离(ly)*</th><th>备注</th></tr></thead><tbody>
+<tr><td>天狼</td><td>α CMa</td><td>Sirius</td><td>6h45m.2</td><td>-16°43′</td><td>-1.46</td><td></td><td>A1</td><td>8.6</td><td></td></tr>
+<tr><td>老人</td><td>α Car</td><td>Canopus</td><td>6h24m.0</td><td>-52°42′</td><td>-0.72</td><td></td><td>F0</td><td>300</td><td></td></tr>
+<tr><td>南门二</td><td>α Cen</td><td>Arcturus</td><td>14h39m.5</td><td>-60°50′</td><td>-0.27</td><td></td><td>G2</td><td>4.39</td><td></td></tr>
+<tr><td>大角</td><td>α Boo</td><td>Rigel Kentaurus</td><td>14h15m.6</td><td>+19°11′</td><td>-0.04</td><td></td><td>K2</td><td>36.7</td><td></td></tr>
+<tr><td>织女一</td><td>α Lyr</td><td>Vega</td><td>18h36m.9</td><td>+38°47′</td><td>0.03</td><td></td><td>A0</td><td>25.3</td><td></td></tr>
+<tr><td>五车二</td><td>α Aur</td><td>Capella</td><td>5h16m.7</td><td>+46°0′</td><td>0.08</td><td></td><td>G8</td><td>42</td><td></td></tr>
+<tr><td>参宿七</td><td>β Ori</td><td>Rigel</td><td>5h14m.5</td><td>-8°12′</td><td>0.12</td><td></td><td>B8</td><td>770</td><td></td></tr>
+<tr><td>南河三</td><td>α CMi</td><td>Procyon</td><td>7h30m.3</td><td>+5°14′</td><td>0.38</td><td></td><td>F5</td><td>11.4</td><td></td></tr>
+<tr><td>参宿四</td><td>α Ori</td><td>Betelgeuse</td><td>5h55m.2</td><td>+7°24′</td><td>0.06~0.75</td><td></td><td>M2</td><td>430</td><td></td></tr>
+<tr><td>水委一</td><td>α Eri</td><td>Achernar</td><td>1h37m.7</td><td>-57°14′</td><td>0.46</td><td></td><td>B5</td><td>144</td><td></td></tr>
+<tr><td>马腹一</td><td>β Cen</td><td>Hadar</td><td>14h03m.8</td><td>-60°22′</td><td>0.61</td><td></td><td>B1</td><td>525</td><td></td></tr>
+<tr><td>河鼓二</td><td>α Aql</td><td>Altair</td><td>19h50m.8</td><td>+8°52′</td><td>0.77</td><td></td><td>A1</td><td>16.8</td><td></td></tr>
+<tr><td>十字架二</td><td>α Cru</td><td>Acrux</td><td>12h26m.6</td><td>-63°06′</td><td>0.85</td><td></td><td>B2</td><td>65</td><td></td></tr>
+<tr><td>毕宿五</td><td>α Tau</td><td>Aldebaran</td><td>4h35m.9</td><td>+16°31′</td><td>0.85</td><td></td><td>K5</td><td>320</td><td></td></tr>
+<tr><td>角宿一</td><td>α Vir</td><td>Spica</td><td>13h25m.2</td><td>-11°10′</td><td>0.98</td><td></td><td>B1</td><td>600</td><td></td></tr>
+<tr><td>心宿二</td><td>α Sco</td><td>Antares</td><td>16h29m.4</td><td>-26°26′</td><td>0.94</td><td></td><td>M1</td><td>270</td><td></td></tr>
+<tr><td>北河三</td><td>β Gem</td><td>Pollux</td><td>7h45m.3</td><td>+28°02′</td><td>1.14</td><td></td><td>K0</td><td>34</td><td></td></tr>
+<tr><td>北落师门</td><td>α PsA</td><td>Fomalhaut</td><td>22h57m.6</td><td>-29°37′</td><td>1.16</td><td></td><td>A3</td><td>25</td><td></td></tr>
+<tr><td>天津四</td><td>α Cyg</td><td>Deneb</td><td>20h41m.4</td><td>+45°17′</td><td>1.25</td><td></td><td>A2</td><td>3200</td><td></td></tr>
+<tr><td>十字架三</td><td>β Cru</td><td>Mimosa</td><td>12h47m.7</td><td>-59°41′</td><td>1.25</td><td></td><td>B0</td><td>350</td><td></td></tr>
+<tr><td>轩辕十四</td><td>α Leo</td><td>Regulus</td><td>10h08m.4</td><td>+11°58′</td><td>1.25</td><td></td><td>B7</td><td>78</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="第一章测试题"><a class="header" href="#第一章测试题">第一章测试题</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240315225423.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="天文漫谈.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="第二章仰望星空—星座故事.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="天文漫谈.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="第二章仰望星空—星座故事.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
